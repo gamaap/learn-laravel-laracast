@@ -14,16 +14,32 @@
           <div class="sm:col-span-3">
             <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
             <div class="mt-2">
-              <input type="text" name="title" id="title" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Shift Leader">
+              <input type="text" name="title" id="title" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="Shift Leader" required>
             </div>
+            @error('title')
+              <p class="mt-2 text-red-500 text-sm italic">{{ $message }}</p>
+            @enderror
           </div>
           <div class="sm:col-span-3">
             <label for="salary" class="block text-sm/6 font-medium text-gray-900">Salary</label>
             <div class="mt-2">
-              <input type="text" name="salary" id="salary" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="$50,000 Per Year">
+              <input type="text" name="salary" id="salary" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" placeholder="$50,000 Per Year" required>
             </div>
+            @error('salary')
+              <p class="mt-2 text-red-500 text-sm italic">{{ $message }}</p>
+            @enderror
           </div>
         </div>
+
+        {{-- <div class="mt-5">
+          @if ($errors->any())
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li class="text-red-500 text-sm italic">{{ $error }}</li>
+              @endforeach
+            </ul>
+          @endif
+        </div> --}}
       </div>
     </div>
 
